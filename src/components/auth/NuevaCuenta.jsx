@@ -30,6 +30,8 @@ const NuevaCuenta = () => {
       setError(true);
       return;
     }
+
+    setError(false);
   };
 
   return (

@@ -23,6 +23,6 @@ module.exports = {
     'no-unused-vars': [1],
     'object-curly-newline': ['error', { multiline: true }],
     // 'object-curly-newline': ["error", { "minProperties": 2 }] depende de los valores
-
+    'react/prop-types': 0,
   },
 };

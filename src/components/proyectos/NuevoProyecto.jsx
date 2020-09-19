@@ -1,21 +1,29 @@
-import { useState } from "react";
 import React, { useState } from 'react';
 
 const NuevoProyecto = () => {
+  const [proyecto, setProyecto] = useState({ nombre: '' });
 
-  const [proyecto, setProyecto] = useState({
-    nombre: '',
-  })
+  const [error, setError] = useState(false);
 
-  const {nombre} = proyecto
+  const { nombre } = proyecto;
 
-  const handleChangeProyecto = (params) => {
+  const handleChangeProyecto = (e) => {
     setProyecto({
       ...proyecto,
-      [e.target.name]: e.target.value
-    })
-  }
-  
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (nombre.trim() === '') {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+  };
 
   return (
     <div>
@@ -27,6 +35,7 @@ const NuevoProyecto = () => {
       </button>
 
       <form
+        onSubmit={handleSubmit}
         className='formulario-nuevo-proyecto'
       >
         <input
