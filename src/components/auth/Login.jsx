@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const handleChange = (e) => {
+  const [usuario, setUsuario] = useState({
+    email: '',
+    password: '',
+  });
 
+  const [error, setError] = useState(false);
+
+  const { email, password } = usuario;
+
+  const handleChange = (e) => {
+    setUsuario({
+      ...usuario,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (email.trim() === '' || password.trim() === '') {
+      setError(true);
+      return;
+    }
   };
 
   return (
@@ -10,13 +32,16 @@ const Login = () => {
       <div className='contenedor-form sombra-dark'>
         <h1>Iniciar Sesión</h1>
 
-        <form>
+        <form
+          onSubmit={handleSubmit}
+        >
           <div className='campo-form'>
             <label htmlFor='email'>Email</label>
             <input
               type='email'
               id='email'
               name='email'
+              value={email}
               placeholder='Tu Email'
               onChange={handleChange}
             />
@@ -28,6 +53,7 @@ const Login = () => {
               type='password'
               id='password'
               name='password'
+              value={password}
               placeholder='Tu Password'
               onChange={handleChange}
             />
@@ -40,7 +66,9 @@ const Login = () => {
             />
           </div>
         </form>
-
+        <Link to='/nueva-cuenta' className='enlace-cuenta'>
+          Nueva Cuenta
+        </Link>
       </div>
     </div>
   );
