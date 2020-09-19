@@ -8,9 +8,7 @@ module.exports = {
     'airbnb',
   ],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
+    ecmaFeatures: { jsx: true },
     ecmaVersion: 12,
     sourceType: 'module',
   },
@@ -22,5 +20,9 @@ module.exports = {
     'jsx-quotes': [2, 'prefer-single'],
     'jsx-a11y/label-has-associated-control': [0],
     'no-useless-return': [0],
+    'no-unused-vars': [1],
+    'object-curly-newline': ['error', { multiline: true }],
+    // 'object-curly-newline': ["error", { "minProperties": 2 }] depende de los valores
+
   },
 };
