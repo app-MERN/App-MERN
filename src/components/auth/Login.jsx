@@ -25,6 +25,7 @@ const Login = () => {
       setError(true);
       return;
     }
+    setError(false);
   };
 
   return (

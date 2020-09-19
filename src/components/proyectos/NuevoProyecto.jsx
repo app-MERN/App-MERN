@@ -1,6 +1,22 @@
-import React from 'react';
+import { useState } from "react";
+import React, { useState } from 'react';
 
 const NuevoProyecto = () => {
+
+  const [proyecto, setProyecto] = useState({
+    nombre: '',
+  })
+
+  const {nombre} = proyecto
+
+  const handleChangeProyecto = (params) => {
+    setProyecto({
+      ...proyecto,
+      [e.target.name]: e.target.value
+    })
+  }
+  
+
   return (
     <div>
       <button
@@ -16,8 +32,10 @@ const NuevoProyecto = () => {
         <input
           type='text'
           className='input-text'
-          placeholder='Nombre Proyecto'
           name='nombre'
+          value={nombre}
+          placeholder='Nombre Proyecto'
+          onChange={handleChangeProyecto}
         />
 
         <input
