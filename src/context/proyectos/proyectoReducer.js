@@ -4,6 +4,7 @@ import {
   ADD_PROYECTO,
   VALIDAR_FORMULARIO,
   PROYECTO_ACTUAL,
+  DELETE_PROYECTO,
 } from '../../types'
 
 export default (state, action) => {
@@ -41,6 +42,13 @@ export default (state, action) => {
       return {
         ...state,
         proyectoz: state.proyecto.filter((proyecto) => proyecto.id === action.payload),
+      }
+
+    case DELETE_PROYECTO:
+      return {
+        ...state,
+        proyecto: state.proyecto.filter((proyecto) => proyecto.id !== action.payload),
+        proyectoz: null,
       }
 
     default:

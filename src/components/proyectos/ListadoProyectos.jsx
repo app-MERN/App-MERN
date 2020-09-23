@@ -8,9 +8,9 @@ const ListadoProyectos = () => {
 
   useEffect(() => {
     getProyecto()
-  }, [getProyecto])
+  }, [])
 
-  if (proyecto.length === 0) return null
+  if (proyecto.length === 0) return <p>No hay Proyectos o comienza creando uno</p>
 
   return (
     <div>
