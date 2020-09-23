@@ -1,15 +1,21 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
   },
   extends: [
     'plugin:react/recommended',
     'airbnb',
   ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   parserOptions: {
-    ecmaFeatures: { jsx: true },
-    ecmaVersion: 12,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
   plugins: [
@@ -24,6 +30,5 @@ module.exports = {
     'object-curly-newline': ['error', { multiline: true }],
     // 'object-curly-newline': ["error", { "minProperties": 2 }] depende de los valores
     'react/prop-types': 0,
-    'react/destructuring-assignment': 0,
   },
 };
