@@ -3,6 +3,7 @@ import {
   GET_PROYECTO,
   ADD_PROYECTO,
   VALIDAR_FORMULARIO,
+  PROYECTO_ACTUAL,
 } from '../../types'
 
 export default (state, action) => {
@@ -34,6 +35,12 @@ export default (state, action) => {
       return {
         ...state,
         errorformulario: true,
+      }
+
+    case PROYECTO_ACTUAL:
+      return {
+        ...state,
+        proyectoz: state.proyecto.filter((proyecto) => proyecto.id === action.payload),
       }
 
     default:

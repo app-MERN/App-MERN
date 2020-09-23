@@ -1,16 +1,16 @@
-import React, { useContext, useEffect } from 'react';
-import Proyecto from './Proyecto';
-import proyectoContext from '../../context/proyectos/proyectoContext';
+import React, { useContext, useEffect } from 'react'
+import Proyecto from './Proyecto'
+import proyectoContext from '../../context/proyectos/proyectoContext'
 
 const ListadoProyectos = () => {
-  const proyectosContext = useContext(proyectoContext);
-  const { proyecto, getProyecto } = proyectosContext;
+  const proyectosContext = useContext(proyectoContext)
+  const { proyecto, getProyecto } = proyectosContext
 
   useEffect(() => {
-    getProyecto();
-  }, []);
+    getProyecto()
+  }, [])
 
-  if (proyecto.length === 0) return null;
+  if (proyecto.length === 0) return null
 
   return (
     <div>
@@ -23,11 +23,11 @@ const ListadoProyectos = () => {
               key={proyect.id}
               proyecto={proyect}
             />
-          );
+          )
         }) }
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default ListadoProyectos;
+export default ListadoProyectos
