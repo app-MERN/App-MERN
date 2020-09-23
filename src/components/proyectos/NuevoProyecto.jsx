@@ -1,39 +1,43 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react'
 
-import proyectoContext from '../../context/proyectos/proyectoContext';
+import proyectoContext from '../../context/proyectos/proyectoContext'
 
 const NuevoProyecto = () => {
-  const proyectosContext = useContext(proyectoContext);
+  const proyectosContext = useContext(proyectoContext)
 
-  const { formulario, mostrarFormulario } = proyectosContext;
+  const { formulario, mostrarFormulario, addProyecto } = proyectosContext
 
-  const [proyecto, setProyecto] = useState({ nombre: '' });
+  const [proyecto, setProyecto] = useState({ nombre: '' })
 
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false)
 
-  const { nombre } = proyecto;
+  const { nombre } = proyecto
 
   const handleChangeProyecto = (e) => {
     setProyecto({
       ...proyecto,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (nombre.trim() === '') {
-      setError(true);
-      return;
+      setError(true)
+      return
     }
 
-    setError(false);
-  };
+    setError(false)
+
+    addProyecto(proyecto)
+
+    setProyecto({ nombre: '' })
+  }
 
   const handleClick = () => {
-    mostrarFormulario();
-  };
+    mostrarFormulario()
+  }
 
   return (
     <div>
@@ -70,7 +74,7 @@ const NuevoProyecto = () => {
 
         : null}
     </div>
-  );
-};
+  )
+}
 
-export default NuevoProyecto;
+export default NuevoProyecto

@@ -30,5 +30,8 @@ module.exports = {
     'react/prop-types': 0,
     'import/prefer-default-export': [1],
     'react/destructuring-assignment': 0,
+    'import/no-extraneous-dependencies': [1],
+    'semi': ["error", "never"],
+    'import/prefer-default-export': 0,
   },
 };
