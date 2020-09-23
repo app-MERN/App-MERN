@@ -1,32 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   const [usuario, setUsuario] = useState({
     email: '',
     password: '',
-  });
+  })
 
-  const [error, setError] = useState(false);
-
-  const { email, password } = usuario;
+  const { email, password } = usuario
 
   const handleChange = (e) => {
     setUsuario({
       ...usuario,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (email.trim() === '' || password.trim() === '') {
-      setError(true);
-      return;
+      return
     }
-    setError(false);
-  };
+  }
 
   return (
     <div className='form-usuario'>
@@ -72,7 +68,7 @@ const Login = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

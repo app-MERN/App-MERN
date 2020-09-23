@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const NuevaCuenta = () => {
   const [usuario, setUsuario] = useState({
@@ -7,32 +7,27 @@ const NuevaCuenta = () => {
     email: '',
     password: '',
     confirmar: '',
-  });
+  })
 
-  const [error, setError] = useState(false);
-
-  const { nombre, email, password, confirmar } = usuario;
+  const { nombre, email, password, confirmar } = usuario
 
   const handleChange = (e) => {
     setUsuario({
       ...usuario,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (nombre.trim() === ''
       || email.trim() === ''
       || password.trim() === ''
       || confirmar.trim() === '') {
-      setError(true);
-      return;
+      return
     }
-
-    setError(false);
-  };
+  }
 
   return (
     <div className='form-usuario'>
@@ -104,7 +99,7 @@ const NuevaCuenta = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NuevaCuenta;
+export default NuevaCuenta
