@@ -22,7 +22,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    'arrow-body-style': [1, 'as-needed'],
+    'arrow-body-style': [0],
     'jsx-quotes': [2, 'prefer-single'],
     'jsx-a11y/label-has-associated-control': [0],
     'no-useless-return': [0],
