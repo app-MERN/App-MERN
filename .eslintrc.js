@@ -12,9 +12,7 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
+    ecmaFeatures: { jsx: true },
     ecmaVersion: 2018,
     sourceType: 'module',
   },
@@ -30,5 +28,7 @@ module.exports = {
     'object-curly-newline': ['error', { multiline: true }],
     // 'object-curly-newline': ["error", { "minProperties": 2 }] depende de los valores
     'react/prop-types': 0,
+    'import/prefer-default-export': [1],
+    'react/destructuring-assignment': 0,
   },
 };
