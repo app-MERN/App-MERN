@@ -24,5 +24,6 @@ module.exports = {
     'object-curly-newline': ['error', { multiline: true }],
     // 'object-curly-newline': ["error", { "minProperties": 2 }] depende de los valores
     'react/prop-types': 0,
+    'react/destructuring-assignment': 0,
   },
 };
