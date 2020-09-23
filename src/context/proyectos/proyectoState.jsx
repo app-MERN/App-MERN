@@ -3,7 +3,12 @@ import { getId } from '../../utils'
 
 import proyectoContext from './proyectoContext'
 import proyectoReducer from './proyectoReducer'
-import { FORMULARIO_PROYECTO, GET_PROYECTO, ADD_PROYECTO } from '../../types'
+import {
+  FORMULARIO_PROYECTO,
+  GET_PROYECTO,
+  ADD_PROYECTO,
+  VALIDAR_FORMULARIO,
+} from '../../types'
 
 const ProyectoState = (props) => {
   const proyecto = [
@@ -16,6 +21,7 @@ const ProyectoState = (props) => {
   const initialState = {
     proyecto: [],
     formulario: false,
+    errorformulario: false,
   }
 
   //  Dispatch para ejecutar las opciones
@@ -41,14 +47,20 @@ const ProyectoState = (props) => {
     })
   }
 
+  const mostrarError = () => {
+    dispatch({ type: VALIDAR_FORMULARIO })
+  }
+
   return (
     <proyectoContext.Provider
       value={{
         proyecto: state.proyecto,
         formulario: state.formulario,
+        errorformulario: state.errorformulario,
         mostrarFormulario,
         getProyecto,
         addProyecto,
+        mostrarError,
       }}
     >
       { props.children }
