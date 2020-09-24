@@ -16,7 +16,7 @@ export default (state, action) => {
     case ADD_TAREA:
       return {
         ...state,
-        tareas: [...state.tareas, action.payload],
+        tareas: [action.payload, ...state.tareas],
         errortarea: false,
       }
 
