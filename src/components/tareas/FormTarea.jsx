@@ -7,7 +7,7 @@ const FormTarea = () => {
   const { proyectoz } = proyectosContext
 
   const tareasContext = useContext(TareaContext)
-  const { addTarea } = tareasContext
+  const { errortarea, validarTarea, addTarea, getTareas } = tareasContext
 
   const [tarea, setTarea] = useState({ nombre: '' })
 
@@ -27,9 +27,18 @@ const FormTarea = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    if (nombre.trim() === '') {
+      validarTarea()
+      return
+    }
+
     tarea.proyectoId = proyectoActual.id
     tarea.estado = false
     addTarea(tarea)
+
+    getTareas(proyectoActual.id)
+
+    setTarea({ nombre: '' })
   }
 
   return (
@@ -57,6 +66,11 @@ const FormTarea = () => {
           />
         </div>
       </form>
+
+      { errortarea
+        ? <p className='mensaje error'>El nombre de la Tarea es Obligatorio</p>
+        : null}
+
     </div>
   )
 }

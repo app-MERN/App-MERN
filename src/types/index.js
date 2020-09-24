@@ -7,3 +7,4 @@ export const DELETE_PROYECTO = 'DELETE_PROYECTO'
 
 export const TAREAS_PROYECTO = 'TAREAS_PROYECTO'
 export const ADD_TAREA = 'ADD_TAREA'
+export const VALIDAR_TAREA = 'VALIDAR_TAREA'
