@@ -8,6 +8,7 @@ import {
   VALIDAR_TAREA,
   ELIMINAR_TAREA,
   ESTADO_TAREA,
+  TAREA_ACTUAL,
 } from '../../types'
 
 const TareaState = (props) => {
@@ -29,6 +30,7 @@ const TareaState = (props) => {
     ],
     tareasproyecto: null,
     errortarea: false,
+    tareaseleccionada: null,
   }
 
   const [state, dispatch] = useReducer(TareaReducer, initialState)
@@ -65,17 +67,26 @@ const TareaState = (props) => {
     })
   }
 
+  const saveTareActual = (tareax) => {
+    dispatch({
+      type: TAREA_ACTUAL,
+      payload: tareax,
+    })
+  }
+
   return (
     <TareaContext.Provider
       value={{
         tareas: state.tareas,
         tareasproyecto: state.tareasproyecto,
         errortarea: state.errortarea,
+        tareaseleccionada: state.tareaseleccionada,
         getTareas,
         addTarea,
         validarTarea,
         eliminarTarea,
         cambiarEstadoTarea,
+        saveTareActual,
       }}
     >
       { props.children }
