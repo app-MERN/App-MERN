@@ -10,12 +10,7 @@ const ListadoTareas = () => {
 
   const [proyectoActual] = proyectoz
 
-  const tareasProyecto = [
-    { nombre: 'Elegir Plataforma', estado: true },
-    { nombre: 'Elegir Colores', estado: false },
-    { nombre: 'Elegir Plataforma de Pago', estado: false },
-    { nombre: 'Elegir Hosting', estado: true },
-  ]
+  const tareasProyecto = []
 
   const handleClick = () => {
     deleteProyecto(proyectoActual.id)
