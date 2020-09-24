@@ -9,7 +9,7 @@ const Proyecto = ({ proyecto }) => {
   const tareasContext = useContext(TareaContext)
   const { getTareas } = tareasContext
 
-  const seleccionarProyecto = (id) => {
+  const handleClick = (id) => {
     proyectoActual(id)
     getTareas(id)
   }
@@ -18,7 +18,7 @@ const Proyecto = ({ proyecto }) => {
     <button
       type='button'
       className='btn btn-blank'
-      onClick={() => seleccionarProyecto(proyecto.id)}
+      onClick={() => handleClick(proyecto.id)}
     >
       {proyecto.nombre}
     </button>
