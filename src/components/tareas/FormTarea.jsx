@@ -9,9 +9,15 @@ const FormTarea = () => {
 
   const [proyectoActual] = proyectoz
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <div className='formulario'>
-      <form>
+      <form
+        onSubmit={handleSubmit}
+      >
         <div
           className='contenedor-input'
         >

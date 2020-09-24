@@ -1,4 +1,7 @@
-import { TAREAS_PROYECTO } from '../../types'
+import {
+  TAREAS_PROYECTO,
+  ADD_TAREA,
+} from '../../types'
 
 export default (state, action) => {
   switch (action.type) {
@@ -6,6 +9,12 @@ export default (state, action) => {
       return {
         ...state,
         tareasproyecto: state.tareas.filter((tarea) => tarea.proyectoId === action.payload),
+      }
+
+    case ADD_TAREA:
+      return {
+        ...state,
+        tareas: [...state.tareas, action.payload],
       }
 
     default:
