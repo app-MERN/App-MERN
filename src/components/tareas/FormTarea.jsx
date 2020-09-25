@@ -13,6 +13,7 @@ const FormTarea = () => {
     validarTarea,
     addTarea,
     getTareas,
+    actualizartarea,
   } = tareasContext
 
   useEffect(() => {
@@ -46,9 +47,13 @@ const FormTarea = () => {
       return
     }
 
-    tarea.proyectoId = proyectoActual.id
-    tarea.estado = false
-    addTarea(tarea)
+    if (tareaseleccionada === null) {
+      tarea.proyectoId = proyectoActual.id
+      tarea.estado = false
+      addTarea(tarea)
+    } else {
+      actualizartarea(tarea)
+    }
 
     getTareas(proyectoActual.id)
 

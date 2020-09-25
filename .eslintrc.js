@@ -35,5 +35,6 @@ module.exports = {
     'import/no-extraneous-dependencies': [1],
     'semi': ["error", "never"],
     'import/prefer-default-export': 0,
+    "no-use-before-define": [0],
   },
 };
