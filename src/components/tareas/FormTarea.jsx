@@ -14,6 +14,7 @@ const FormTarea = () => {
     addTarea,
     getTareas,
     actualizartarea,
+    limpiarTarea,
   } = tareasContext
 
   useEffect(() => {
@@ -53,6 +54,7 @@ const FormTarea = () => {
       addTarea(tarea)
     } else {
       actualizartarea(tarea)
+      limpiarTarea()
     }
 
     getTareas(proyectoActual.id)

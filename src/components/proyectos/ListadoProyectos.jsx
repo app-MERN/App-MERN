@@ -9,6 +9,7 @@ const ListadoProyectos = () => {
 
   useEffect(() => {
     getProyecto()
+    // eslint-disable-next-line
   }, [])
 
   if (proyecto.length === 0) return <p>No hay Proyectos o comienza creando uno</p>

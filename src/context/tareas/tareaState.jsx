@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { getId } from '../../utils'
 import TareaContext from './tareaContext'
 import TareaReducer from './tareaReducer'
 
@@ -10,6 +11,7 @@ import {
   ESTADO_TAREA,
   TAREA_ACTUAL,
   ACTUALIZAR_TAREA,
+  LIMPIAR_TAREA,
 } from '../../types'
 
 const TareaState = (props) => {
@@ -44,6 +46,7 @@ const TareaState = (props) => {
   }
 
   const addTarea = (tarea) => {
+    tarea.id = getId()
     dispatch({
       type: ADD_TAREA,
       payload: tarea,
@@ -82,6 +85,10 @@ const TareaState = (props) => {
     })
   }
 
+  const limpiarTarea = () => {
+    dispatch({ type: LIMPIAR_TAREA })
+  }
+
   return (
     <TareaContext.Provider
       value={{
@@ -96,6 +103,7 @@ const TareaState = (props) => {
         cambiarEstadoTarea,
         saveTareActual,
         actualizartarea,
+        limpiarTarea,
       }}
     >
       { props.children }
